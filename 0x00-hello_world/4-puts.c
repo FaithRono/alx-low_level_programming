@@ -2,6 +2,7 @@
 /**
  *main - main entry poit
  *return : alwasys 0 (success)
+ *this program include the function of puts
  */
 int main(void)
 {
