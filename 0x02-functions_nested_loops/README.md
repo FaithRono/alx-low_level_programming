@@ -20,4 +20,19 @@ program that prints _putchar is
           _putchar('\n');
  
           return (0);
-  }                                  
+  }
+FUNCTION THAT PRINTS THE ALPHABET IN LOWERCASE 
+#include "main.h"
+  2
+  3 /**
+  4  * print_alphabet - prints the alphabet in lowercase, followed by a new line.
+  5  */
+  6 void print_alphabet(void)
+  7 {
+  8         char letter;
+  9
+ 10         for (letter = 'a'; letter <= 'z'; letter++)
+ 11                 _putchar(letter);
+ 12
+ 13         _putchar('\n');
+ 14 }
