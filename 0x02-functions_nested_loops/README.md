@@ -1,1 +1,23 @@
 0x02. C - Functions, nested loops
+program that prints _putchar is
+#include "main.h"
+   /**
+     *main - program that prints _putchar, followed by a new line
+     *
+     *Return: Always 0 (success)
+     *
+     */
+   int main(void)
+   {
+          _putchar('_');
+          _putchar('p');
+          _putchar('u');
+          _putchar('t');
+          _putchar('c');
+          _putchar('h');
+          _putchar('a');
+          _putchar('r');
+          _putchar('\n');
+ 
+          return (0);
+  }                                  
