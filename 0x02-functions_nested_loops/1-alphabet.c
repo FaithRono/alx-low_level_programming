@@ -1,14 +1,9 @@
 #include "main.h"
 
 /**
-  *main - prints the alphabet, in lowercase, followed by a new line
-  *
-  *Description: print_alphabet - Make alphabet
-  *
-  *Return: void
-  */
-
-int(void)print_alphabet(void)
+ * print_alphabet - prints the alphabet in lowercase, followed by a new line.
+ */
+void print_alphabet(void)
 {
 	char letter;
 
