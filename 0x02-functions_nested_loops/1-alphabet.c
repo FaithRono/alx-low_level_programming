@@ -3,9 +3,12 @@
 /**
   *main - prints the alphabet, in lowercase, followed by a new line
   *
+  *Description: print_alphabet - Make alphabet
+  *
   *Return: void
   */
-void print_alphabet(void)
+
+int(void)print_alphabet(void)
 {
 	char letter;
 
