@@ -5,7 +5,7 @@
 /**
   * argstostr -  function that concatenates all the arguments
   * @ac: the argument count
-  * @ac: argument vector
+  * @av: argument vector
   *
   * Return: a character value
   */
@@ -26,9 +26,7 @@ char *argstostr(int ac, char **av)
 		o = 0;
 		n++;
 	}
-	
-	q = malloc((sizeof(char) * m)+ ac + 1);
-	
+	q = malloc((sizeof(char) * m) + ac + 1);
 	n = 0;
 	while (av[n])
 	{
