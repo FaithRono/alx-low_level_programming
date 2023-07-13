@@ -1,14 +1,11 @@
 #include "main.h"
 #include <stdlib.h>
-
-  /*
-   * *array_range - function that creates an array of integers.
-   * @min: minimum amopuint  of  the array
-   * @max: the maximum amount of the array
-   *
-   * Return: the pointer to the array
-   */
-
+/**
+ * array_range - main function that creates an array
+ * @min: the minimum numbers
+ * @max: the maximum numbers
+ * Return: an integral value
+ */
 int *array_range(int min, int max)
 {
 	int i;
