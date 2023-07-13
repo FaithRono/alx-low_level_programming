@@ -21,7 +21,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (concatenated_string == NULL)
 		return (NULL);
-	len = 0
+	len = 0;
 	for (index = 0; s1[index]; index++)
 		concatenated_string[len++] = s1[index];
 
