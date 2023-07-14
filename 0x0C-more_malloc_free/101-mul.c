@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 int find_len(char *str);
-char *create_xarray(int size);
+char *create_parray(int size);
 char *iterate_zeroes(char *str);
 void get_prod(char *prod, char *mult, int digit, int zeroes);
 void add_nums(char *final_prod, char *next_prod, int next_len);
@@ -25,15 +25,15 @@ int find_len(char *str)
 }
 
 /**
- * create_xarray - Creates an array of chars and initializes it with
- *                 the character 'x'. Adds a terminating null byte.
+ * create_parray - Creates an array of chars and initializes it with
+ *                 the character 'p'. Adds a terminating null byte.
  * @size: The size of the array to be initialized.
  *
  * Description: If there is insufficient space, the
  *              function exits with a status of 98.
  * Return: A pointer to the array.
  */
-char *create_xarray(int size)
+char *create_parray(int size)
 {
 	char *array;
 	int index;
@@ -44,7 +44,7 @@ char *create_xarray(int size)
 		exit(98);
 
 	for (index = 0; index < (size - 1); index++)
-		array[index] = 'x';
+		array[index] = 'p';
 
 	array[index] = '\0';
 
@@ -106,7 +106,7 @@ void get_prod(char *prod, char *mult, int digit, int zeroes)
 
 	while (*prod)
 	{
-		*prod = 'x';
+		*prod = 'p';
 		prod++;
 	}
 
@@ -152,7 +152,7 @@ void add_nums(char *final_prod, char *next_prod, int next_len)
 	while (*(next_prod + 1))
 		next_prod++;
 
-	for (; *final_prod != 'x'; final_prod--)
+	for (; *final_prod != 'p'; final_prod--)
 	{
 		num = (*final_prod - '0') + (*next_prod - '0');
 		num += tens;
@@ -163,7 +163,7 @@ void add_nums(char *final_prod, char *next_prod, int next_len)
 		next_len--;
 	}
 
-	for (; next_len >= 0 && *next_prod != 'x'; next_len--)
+	for (; next_len >= 0 && *next_prod != 'p'; next_len--)
 	{
 		num = (*next_prod - '0');
 		num += tens;
@@ -209,8 +209,8 @@ int main(int argc, char *argv[])
 	}
 
 	size = find_len(argv[1]) + find_len(argv[2]);
-	final_prod = create_xarray(size + 1);
-	next_prod = create_xarray(size + 1);
+	final_prod = create_parray(size + 1);
+	next_prod = create_parray(size + 1);
 
 	for (index = find_len(argv[2]) - 1; index >= 0; index--)
 	{
@@ -220,7 +220,7 @@ int main(int argc, char *argv[])
 	}
 	for (index = 0; final_prod[index]; index++)
 	{
-		if (final_prod[index] != 'x')
+		if (final_prod[index] != 'p')
 			putchar(final_prod[index]);
 	}
 	putchar('\n');
