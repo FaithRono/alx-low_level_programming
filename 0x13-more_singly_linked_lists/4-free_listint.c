@@ -2,8 +2,9 @@
 
 /**
   * free_listint - function that frees a listint_t list
-  * @head - the head of the list
+  * @head: the head of the list
   */
+
 void free_listint(listint_t *head)
 {
 	listint_t *t;
