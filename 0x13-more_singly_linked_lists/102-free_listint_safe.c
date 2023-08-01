@@ -1,43 +1,81 @@
 #include "lists.h"
-  2 #include <stdio.h>
-  3 
-  4 size_t looped_listint_y(const listint_t *head);
-  5 size_t print_listint_safe(const listint_t *head);
-  6 /**
-  7   * looped_listint_y - functions that counts unique nodes
-  8   * @ head: head the node
-  9   * Return: number of unique nodes
- 10   */
- 11 size_t looped_listint_y(const listint_t *head)
- 12 {
- 13         const listint_t *a, *b;
- 14         size_t x = 1;
- 15 
- 16         if(head == NULL || head->next ==NULL)
- 17                 return (0);
- 18         a = head->next;
- 19         b = (head->next)->next;
- 20          while (b)
- 21          {
- 22                  if (a == b)
- 23                  {
- 24                          a = head;
- 25                          while (a != b)
- 26                          {
- 27                                  x++;
- 28                                  a = a->next;
- 29                                  b = b->next;
- 30                          }
- 31  
- 32                          a = a->next;
- 33                          while (a != b)
- 34                          {
- 35                                  x++;
- 36                                  a = a->next;
- 37                          }
- 38                          return (x);
- 39                  }
- 40                          a = a->next;
- 41                          b = (b->next)->next;
- 42          }
- 43  
+
+size_t looped_listint_count(listint_t *head);
+size_t free_listint_safe(listint_t **h);
+
+/**
+  * looped_listint_count - counts unique nodes
+  * @head: the head of the list
+  * Return: number of unique nodes and
+  *         0 if it is not looped
+  */
+size_t looped_listint_count(listint_t *head)
+	{
+	listint_t *a, *b;
+	size_t x = 1;
+
+	if (head == NULL || head->next == NULL)
+		return (0);
+	a = head->next;
+	b = (head->next)->next;
+	while (b)
+	{
+		if (a == b)
+		{
+			a = head;
+			while (a != b)
+			{
+				x++;
+				a = a->next;
+				b = b->next;
+			}
+
+			a = a->next;
+			while (a != b)
+			{
+				x++;
+				a = a->next;
+			}
+			return (x);
+		}
+			a = a->next;
+			b = (b->next)->next;
+	}
+
+	return (0);
+}
+
+/**
+  * free_listint_safe - function that frees a listint_t list.
+  * @h: pointer to the head
+  * Return: the size of the list that was free’d
+  */
+size_t free_listint_safe(listint_t **h)
+{
+	listint_t *temp;
+	size_t x, index;
+
+	x = looped_listint_count(*h);
+
+	if (x == 0)
+	{
+		for (; h != NULL && *h != NULL; x++)
+		{
+			temp = (*h)->next;
+			free(*h);
+			*h = temp;
+		}
+	}
+
+	else
+	{
+		for (index = 0; index < x; index++)
+		{
+			temp = (*h)->next;
+			free(*h);
+			*h = temp;
+		}
+		*h = NULL;
+	}
+	return (x);
+}
