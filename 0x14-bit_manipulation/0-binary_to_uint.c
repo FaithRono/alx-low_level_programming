@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
   * binary_to_uint - function that converts a
@@ -9,21 +10,26 @@
   */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int y = 0, x = 1;
-	int z;
+	
+	unsigned int count = 0;
+	unsigned int check = 1;
+	int i;
 
-	if (*b == '\0')
+	if (b == NULL)
 		return (0);
-
-	for (z = 0; b[z];)
-		z++;
-
-	for (z -= 1; z >= 0; z--)
+	i = 0;
+	while (b[i] != '\0')
 	{
-		if (b[z] != '0' && b[z] != '1')
+		if (b[i] != '0' && b[i] != '1')
+		{
 			return (0);
-		y += (b[z] - '0') * x;
-		x *= 2;
+		}
+		count <<= 1;
+		if (b[i] == '1')
+		{
+			count ^= check;
+		}
+		i++;
 	}
-	return (y);
+	return (count);
 }
