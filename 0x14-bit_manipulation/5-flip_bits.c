@@ -1,18 +1,22 @@
 #include "main.h"
 
 /**
- * clear_bit - function that clears the bits of values
- * @n: the bit to be cleared
- * @index: index of the bit to be cleared
- * Return: 1 if it worked, or -1 if an error occurred
- */
-int clear_bit(unsigned long int *n, unsigned int index)
+*flip_bits - gets number of bits you would
+*	need to flip to get from one number to another
+*@n: First number
+*@m: second number
+*Return: No of bits required to move from n to m
+*/
+
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	if (index >= (sizeof(unsigned long int) * 8))
-		return (-1);
+unsigned long int xor_result = n ^ m;
+unsigned int count = 0;
 
-	*n &= ~(1 << index);
-
-	return (1);
+while (xor_result != 0)
+{
+count += xor_result & 1;
+xor_result >>= 1;
 }
-
+return (count);
+}
