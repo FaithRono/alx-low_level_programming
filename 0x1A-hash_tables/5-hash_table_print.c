@@ -10,8 +10,10 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int idx;
 	int curr = 0;
 	hash_node_t *temp;
+
 	if (ht == NULL)
 		return;
+
 	printf("{");
 	for (idx = 0; idx < ht->size; idx++)
 	{
@@ -25,7 +27,6 @@ void hash_table_print(const hash_table_t *ht)
 			temp = temp->next;
 		}
 	}
-	
 	printf("}\n");
 }
 
