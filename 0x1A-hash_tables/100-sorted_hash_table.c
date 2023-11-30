@@ -24,7 +24,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 		return (NULL);
 	}
 
-
+	/*Assign each element of array to NULL*/
 	for (i = 0; i < size; i++)
 	{
 		ht->array[i] = NULL;
@@ -56,7 +56,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (new_node == NULL)
 		return (0);
 	search = ht->array[index];
-
+/*Updates a key already in the list*/
 	while (search != NULL)
 	{
 		if (strcmp(search->key, key) == 0)
@@ -68,10 +68,10 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		}
 		search = search->next;
 	}
-
+/*Makes a new node in the hash table*/
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
-
+/*Assigns where the new node goes in array*/
 	new_node->next = ht->array[index];
 	ht->array[index] = new_node;
 
@@ -187,6 +187,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 
 	if (ht == NULL)
 		return;
+
 	printf("{");
 	printer = ht->stail;
 	while (printer != NULL)
@@ -221,6 +222,7 @@ void shash_table_delete(shash_table_t *ht)
 		free(head);
 		head = next;
 	}
+
 	free(ht->array);
 	free(ht);
 }
