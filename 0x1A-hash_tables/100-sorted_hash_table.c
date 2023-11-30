@@ -187,7 +187,6 @@ void shash_table_print_rev(const shash_table_t *ht)
 
 	if (ht == NULL)
 		return;
-
 	printf("{");
 	printer = ht->stail;
 	while (printer != NULL)
@@ -222,7 +221,6 @@ void shash_table_delete(shash_table_t *ht)
 		free(head);
 		head = next;
 	}
-
 	free(ht->array);
 	free(ht);
 }
