@@ -7,7 +7,7 @@
  * @value: The value associated with the key (must be duplicated)
  * Return: 1 if it succeeded, 0 otherwise
  */
-int hash_table_set(hash_table_t *ht, const char *key, const char *value);
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
 	hash_node_t *new_node, *temp;
